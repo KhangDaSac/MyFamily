@@ -1,0 +1,18 @@
+.navbar-title{
+    font-size: 30px;
+    font-family: 'TNH-Xuong';
+    
+}
+
+nav ul li{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.nav-color{
+    background-color: #efbde9 !important;
+}
+
+.dropdown-item:hover{
+    background-color: #e753d6;
+}

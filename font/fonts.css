@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'TNH-Xuong';
+    src: url('TNHXuong.woff2') format('woff2'),
+        url('TNHXuong.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LC-Sac-Trial';
+    src: url('LCSacTrial-Regular.woff2') format('woff2'),
+        url('LCSacTrial-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
