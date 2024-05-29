@@ -2,9 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'LC-Sac-Trial';
 }
 
 img{
     width: 100%;
     height: 100%;
+}
+
+body{
+    background-color: #f6d3f1;
 }

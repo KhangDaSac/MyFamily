@@ -1,4 +1,88 @@
 img{
-    width: 60%;
+    width: 65%;
     margin: 20px;
 }
+
+.col-design{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-text h2{
+    font-size: 60px;
+    font-family: 'Shelia VNF';
+    margin: 30px 0;
+    text-align: center;
+}
+
+.col-text p{
+    font-size: 25px;
+    text-align: center;
+    width: 80%;
+}
+
+.col-title h2{
+    font-weight: 800;
+    font-size: 80px;
+    font-family: 'Shelia VNF';
+    text-align: center;
+}
+
+.col-img{
+    
+}
+
+
+
+@media (max-width: 1200px) {
+    .col-title h2 {
+        font-size: 65px;
+    }
+
+    .col-text h2{
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 992px) {
+    .col-title h2 {
+        font-size: 60px;
+    }
+
+    .col-text h2{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-title h2 {
+        font-size: 55px;
+    }
+
+    .col-text h2{
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-title h2 {
+        font-size: 50px;
+    }
+
+    .col-text h2{
+        font-size: 40px;
+    }
+
+    img{
+        width: 90%;
+        margin: 10px;
+    }
+
+    .col-text p{
+        font-size: 20px;
+        width: 80%;
+    }
+}
+
