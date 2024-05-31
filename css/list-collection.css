@@ -1,0 +1,25 @@
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card{
+    transition: transform 0.6s ease-in-out;
+    min-width: 250px;
+}
+
+.card h5{
+    font-weight: 600;
+}
+
+.title h2{
+    font-size: 80px;
+    font-family: 'Shelia VNF';
+    text-align: center;
+    margin: 40px 0;
+}
+
+.title p{
+    font-size: 25px;
+    text-align: center;
+    width: 85%;
+}
