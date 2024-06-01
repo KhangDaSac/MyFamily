@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,52 +15,54 @@
     <link rel="stylesheet" href="../icons/css/all.css">
     <link rel="stylesheet" href="../icons/css/sharp-solid.css">
     <link rel="stylesheet" href="../icons/css/sharp-regular.css">
-  
+
     <script src="../bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary nav-color">
         <div class="container-fluid">
-          <a class="navbar-brand mx-3 navbar-title" href="#">My family</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
-              <li class="nav-item">
-                <a class="nav-link mx-3 navbar-item active" aria-current="page" href="#">Trang chủ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-3 navbar-item" href="list-collection.html">Bộ sưu tập</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link mx-3 navbar-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Ảnh cưới
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item navbar-subitem" href="#">Đám cưới Xoa</a></li>
-                  <li><a class="dropdown-item navbar-subitem" href="#">Đám cưới Thùy Linh</a></li>
-                  <li><a class="dropdown-item navbar-subitem" href="#">Đám cưới Phượng Linh</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item navbar-subitem" href="#">Đám hỏi Phượng Linh</a></li>
+            <a class="navbar-brand mx-3 navbar-title" href="#">My family</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 navbar-item active" aria-current="page" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 navbar-item" href="list-collection.html">Bộ sưu tập</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link mx-3 navbar-item dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Ảnh cưới
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item navbar-subitem" href="#">Đám cưới Xoa</a></li>
+                            <li><a class="dropdown-item navbar-subitem" href="#">Đám cưới Thùy Linh</a></li>
+                            <li><a class="dropdown-item navbar-subitem" href="#">Đám cưới Phượng Linh</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item navbar-subitem" href="#">Đám hỏi Phượng Linh</a></li>
+                        </ul>
+                    </li>
                 </ul>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2 input-search" type="search" placeholder="Tìm kiếm" aria-label="Search">
-              <button class="btn btn-outline-dark btn-search" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </form>
-          </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 input-search" type="search" placeholder="Tìm kiếm"
+                        aria-label="Search">
+                    <button class="btn btn-outline-dark btn-search" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-      </nav>
-      <div class="container-fluid">
+    </nav>
+    <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <div class="title col-lg-3 col-10 m-3 d-flex flex-column align-items-center">
                 <h2>Bộ sưu tập</h2>
@@ -94,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                 </button>
@@ -153,6 +156,21 @@
                 </div>
             </div>
         </div>
-      </div>
+    </div>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+        aria-controls="offcanvas">
+        Button with data-bs-target
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+        </div>
+    </div>
 </body>
+
 </html>
