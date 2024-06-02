@@ -48,7 +48,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item navbar-subitem" href="#">Đám hỏi Phượng Linh</a></li>
+                            <li><a class="dropdown-item navbar-subitem" href="collection/dam-hoi-phuong-linh">Đám hỏi Phượng Linh</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -70,54 +70,14 @@
             </div>
         </div>
         <div class="row justify-content-center align-items-start" id="img-list">
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
-            </div>
+            <% files.forEach(file => { %>
+                <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
+                    <img src="../image/<%= file.id %>" class="img-fluid rounded" alt="...">
+                </div>
+            <% }); %>
         </div>
     </div>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-sm-down">
-            <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid rounded" alt="...">
-        </div>
-    </div>
-    <script>
-        const exampleModal = document.getElementById('exampleModal')
-        if (exampleModal) {
-            exampleModal.addEventListener('show.bs.modal', event => {
-                const button = event.relatedTarget
-
-                const recipient = button.getAttribute('data-bs-whatever')
-
-                const modalTitle = exampleModal.querySelector('.modal-title')
-                const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-                modalTitle.textContent = `New message to ${recipient}`
-                modalBodyInput.value = recipient
-            })
-        }
-    </script>
+    <script src="../js/collection.js"></script>
 </body>
 
 </html>
