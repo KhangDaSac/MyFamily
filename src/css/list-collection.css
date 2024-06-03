@@ -23,3 +23,33 @@
     text-align: center;
     width: 85%;
 }
+.carousel-item img{
+    max-height: 450px;
+    object-fit: contain; 
+    object-position: center;
+}
+
+
+@media (max-width: 1200px){
+    .carousel-item img{
+        max-height: 450px;
+    }
+}
+
+@media (max-width: 992px){
+    .carousel-item img{
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 768px){
+    .carousel-item img{
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 576px){
+    .carousel-item img{
+        max-height: 300px;
+    }
+}

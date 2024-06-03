@@ -73,29 +73,37 @@
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+                    
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="../images/HomeImages/gia-dinh.jpg" alt="Slide 1" class="d-block w-100">
-                        <div class="carousel-caption">
-                            <h3>Slide 1</h3>
-                            <p>Caption for Slide 1</p>
+                    <a href="collection/anh-tet-2023">
+                        <div class="carousel-item active">
+                            <img src="/image/1au8dp0PzzqooF4LJ4RlD56Pg6auyyhRZ" alt="Slide 1" class="d-block w-100">
+                            <div class="carousel-caption">
+                                <h3>Tết 2023</h3>
+                                <p>23-1-2024</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../images/HomeImages/gia-dinh.jpg" alt="Slide 2" class="d-block w-100">
-                        <div class="carousel-caption">
-                            <h3>Slide 2</h3>
-                            <p>Caption for Slide 2</p>
+                    </a>
+                    <a href="collection/dam-hoi-phuong-linh">
+                        <div class="carousel-item">
+                            <img src="/image/1AKn9qWhLxiuEkcwz1OSvB6qrlVhF-8oY" alt="Slide 2" class="d-block w-100">
+                            <div class="carousel-caption">
+                                <h3>Đám hỏi Phượng Linh</h3>
+                                <p>26-05-2024</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../images/HomeImages/gia-dinh.jpg" alt="Slide 3" class="d-block w-100">
-                        <div class="carousel-caption">
-                            <h3>Slide 3</h3>
-                            <p>Caption for Slide 3</p>
+                    </a>
+                    <a href="collection/anh-tet-2024">
+                        <div class="carousel-item">
+                            <img src="/image/11jSuh6cyiRoU3ygYtlWnVSEFBy7TmCMm" alt="Slide 3" class="d-block w-100">
+                            <div class="carousel-caption">
+                                <h3>Ảnh tết 2024</h3>
+                                <p>10-02-2024</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+
                 </div>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -107,54 +115,21 @@
             </div>
         </div>
         <div class="row justify-content-center align-items-start">
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid my-3" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ảnh gia đình</h5>
-                    <p class="card-text">Tết 2024 - (10/02/2024)</p>
-                    <a href="#" class="btn btn-primary">Xem ảnh</a>
+            <% folderList.forEach(folder => { %>
+                <%
+                    const folderData = folder.name.split(';');
+                %>
+                <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
+                    <img src="../image/<%= folder.avata.id %>" class="img-fluid my-3" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= folderData[1] %></h5>
+                        <p class="card-text"><%= folderData[2] %></p>
+                        <a href="/collection/<%= folderData[0] %>" class="btn btn-primary">Xem ảnh</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                <img src="../images/HomeImages/gia-dinh.jpg" class="img-fluid my-3" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ảnh gia đình</h5>
-                    <p class="card-text">Tết 2024 - (10/02/2024)</p>
-                    <a href="#" class="btn btn-primary">Xem ảnh</a>
-                </div>
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid my-3" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ảnh gia đình</h5>
-                    <p class="card-text">Tết 2024 - (10/02/2024)</p>
-                    <a href="#" class="btn btn-primary">Xem ảnh</a>
-                </div>
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid my-3" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ảnh gia đình</h5>
-                    <p class="card-text">Tết 2024 - (10/02/2024)</p>
-                    <a href="#" class="btn btn-primary">Xem ảnh</a>
-                </div>
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid my-3" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ảnh gia đình</h5>
-                    <p class="card-text">Tết 2024 - (10/02/2024)</p>
-                    <a href="#" class="btn btn-primary">Xem ảnh</a>
-                </div>
-            </div>
-            <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                <img src="../images/HomeImages/Ba-Me-TueNghi.jpg" class="img-fluid my-3" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ảnh gia đình</h5>
-                    <p class="card-text">Tết 2024 - (10/02/2024)</p>
-                    <a href="#" class="btn btn-primary">Xem ảnh</a>
-                </div>
-            </div>
+            <% }); %>
+            
+            
         </div>
     </div>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"

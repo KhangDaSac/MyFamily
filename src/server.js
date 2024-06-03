@@ -9,29 +9,12 @@ const port = process.env.PORT;
 
 configViewEngine(app);
 
-//Test
-// const CLIENT_ID = '1051455385042-5rhjf6mpbe3jh3rtscoc2ktgmf5i5d6n.apps.googleusercontent.com';
-// const CLIENT_SECRET = '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';
-// const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-// const REFRESH_TOKEN = '1//04Q3vY3FlbQ6_CgYIARAAGAQSNwF-L9IrdbPDTbEVOEXuU_AWnUtwdeKECMlqU1ZEddVCoV4eudPARbuWWNvys0j7-hGGmUqS5nY';
-
 
 //main
 const CLIENT_ID = '452031363818-5kblklun3japt3557vqbe7g32qk16b2t.apps.googleusercontent.com';
 const CLIENT_SECRET = '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';
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 const REFRESH_TOKEN = '1//04PuLZTud_GL5CgYIARAAGAQSNwF-L9IrQgo1MIkQP0NMM_zEm7aU5TY9M1vbSOEjwrIEv5u-GHTe6fdG1Bn2qkD-OEu0qyd26h4';
-
-// const oauth2Client = new google.auth.OAuth2(
-//   CLIENT_ID,
-//   CLIENT_SECRET,
-//   REDIRECT_URI
-// );
-
-// oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-// Khởi tạo Google Drive API
-// const drive = google.drive({ version: 'v3', auth: oauth2Client });
 const drive = connectGoogleDrive(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN)
 
 async function listAllFolders() {
@@ -57,36 +40,38 @@ async function listAllFolders() {
     console.error('Error listing folders:', error);
   }
 }
-async function getFolderIdByName(folderName) {
+
+async function getFolderIdByName(namePrefix) {
   try {
     const response = await drive.files.list({
-      q: `mimeType='application/vnd.google-apps.folder' and name='${folderName}'`,
+      q: `mimeType='application/vnd.google-apps.folder' and name contains '${namePrefix}' and trashed = false`,
       fields: 'files(id, name)',
-      pageSize: 1, // Điều chỉnh số lượng kết quả trả về nếu cần thiết
     });
-    const files = response.data.files;
-    if (files.length === 0) {
-      console.log(`No folder found with name '${folderName}'`);
+    const folders = response.data.files;
+    const matchingFolder = folders.find(folder => folder.name.startsWith(namePrefix));
+    if (!matchingFolder) {
       return null;
+    } else {
+      return matchingFolder;
     }
-    return files[0].id; // Trả về folderId của thư mục đầu tiên
   } catch (error) {
-    console.error('Error retrieving folder ID:', error);
-    throw error;
+    console.error('Error retrieving folder ID:', error.message);
+    return null;
   }
 }
 
-
-// Hàm để liệt kê các tệp tin ảnh
-async function listFiles() {
+async function getFileByFolder(folderId, keyWork) {
   try {
     const response = await drive.files.list({
-      q: "mimeType contains 'image/'",
-      fields: 'files(id, name, mimeType)'
+      q: `'${folderId}' in parents and name contains '${keyWork}'`,
+      fields: 'files(id, name)',
+      pageSize: 1
     });
-    return response.data.files;
+
+    return response.data.files[0]
+
   } catch (error) {
-    console.log(error.message);
+    console.error('Error listing files:', error);
   }
 }
 
@@ -98,14 +83,12 @@ async function listFilesByFolder(folderId) {
       orderBy: 'name',
       pageSize: 500
     });
-    console.log(response.data.files)
     return response.data.files;
   } catch (error) {
     console.log(error.message);
   }
 }
 
-// listFilesByFolder('1TLQpT9-fU2otCm1oVGLLQeTVW6oQpOvX');
 
 // Hàm để tải về các tệp tin ảnh dưới dạng Buffer
 async function downloadFile(fileId) {
@@ -125,11 +108,6 @@ async function downloadFile(fileId) {
 // Endpoint để phục vụ tệp HTML
 app.use(express.static(path.join(__dirname)));
 
-// Endpoint để liệt kê tất cả các ảnh
-app.get('/images', async (req, res) => {
-  const files = await listFiles();
-  res.json(files);
-});
 
 // Endpoint để tải một ảnh cụ thể
 app.get('/image/:fileId', async (req, res) => {
@@ -141,10 +119,7 @@ app.get('/image/:fileId', async (req, res) => {
 
 app.get('/collection/id=:folderId', async (req, res) =>{
   const folderId = req.params.folderId;
-  
-  console.log(folderId)
   const files = await listFilesByFolder(folderId);
-  console.log(files)
   res.render('collection.ejs', { files });
 });
 
@@ -152,12 +127,14 @@ app.get('/collection/:folderName', async (req, res) => {
   const folderName = decodeURIComponent(req.params.folderName);
   
   try {
-    const folderId = await getFolderIdByName(folderName);
+    const folder = await getFolderIdByName(folderName);
+    const folderId = folder.id;
     if (!folderId) {
       return res.status(404).send(`Folder with name ${folderName} not found.`);
     }
     const files = await listFilesByFolder(folderId);
-    res.render('collection.ejs', { files });
+    const fileData = folder.name.split(';');
+    res.render('collection.ejs', { files,  fileData});
   } catch (error) {
     res.status(500).send('Error retrieving files.');
   }
@@ -174,8 +151,28 @@ app.get('/home', async (req, res) => {
 });
 
 app.get('/collection-list', async (req, res) => {
-  res.render('collection-list.ejs')
+  try {
+    const folderList = await listAllFolders();
+  
+    const promises = folderList.map(async (folder) => {
+      const folderId = folder.id;
+      let avata = await getFileByFolder(folderId, 'avata');
+      if (!avata){
+        avata = {
+          id: '1eEfkXIh3-3iDEAhMSBCm5FPYMPjjU3X3'
+        }
+      }
+      folder.avata = avata;
+    });
+    await Promise.all(promises);
+
+    res.render('collection-list.ejs', { folderList});
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Error retrieving folder list.');
+  }
 });
+
 
 app.get('/collection', async (req, res) => {
   res.render('collection.ejs')
