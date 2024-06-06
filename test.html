@@ -3,12 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <video class="img-fluid rounded" controls>
-        <source src="https://drive.google.com/uc?id=1wpmBKj4aAMu70-J3BlzvIBOAG69Qhubl&export=download">
-        Your browser does not support the video tag.
-      </video>
+    <h1 id="product-title">Loading...</h1>
+    <p id="product-description">Please wait while we load the product details.</p>
+
+    <script>
+        // Hàm để lấy giá trị của tham số từ URL
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            let results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Dữ liệu sản phẩm giả định
+        const products = {
+            1: {
+                title: 'Product 1',
+                description: 'This is the description for product 1.'
+            },
+            2: {
+                title: 'Product 2',
+                description: 'This is the description for product 2.'
+            },
+            3: {
+                title: 'Product 3',
+                description: 'This is the description for product 3.'
+            }
+        };
+
+        // Lấy id sản phẩm từ URL
+        let productId = getParameterByName('name');
+
+        // Kiểm tra nếu id sản phẩm hợp lệ và tồn tại trong dữ liệu sản phẩm
+        if (productId && products[productId]) {
+            // Cập nhật nội dung trang với thông tin sản phẩm tương ứng
+            document.getElementById('product-title').textContent = products[productId].title;
+            document.getElementById('product-description').textContent = products[productId].description;
+        } else {
+            // Hiển thị thông báo lỗi nếu id sản phẩm không hợp lệ
+            document.getElementById('product-title').textContent = 'Product not found';
+            document.getElementById('product-description').textContent = 'The product you are looking for does not exist.';
+        }
+    </script>
 </body>
 </html>

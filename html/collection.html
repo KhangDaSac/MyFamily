@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../icons/css/sharp-regular.css">
 
     <script src="../bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../jquery-3.7.1/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -31,10 +32,10 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
                     <li class="nav-item">
-                        <a class="nav-link mx-3 navbar-item active" aria-current="page" href="home">Trang chủ</a>
+                        <a class="nav-link mx-3 navbar-item active" aria-current="page" href="home.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-3 navbar-item" href="../collection-list">Bộ sưu tập</a>
+                        <a class="nav-link mx-3 navbar-item" href="collection-list.html">Bộ sưu tập</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link mx-3 navbar-item dropdown-toggle" href="#" role="button"
@@ -48,7 +49,8 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item navbar-subitem" href="collection/dam-hoi-phuong-linh">Đám hỏi Phượng Linh</a></li>
+                            <li><a class="dropdown-item navbar-subitem" href="collection.html?name=dam-hoi-phuong-linh">Đám hỏi
+                                    Phượng Linh</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,24 +66,17 @@
     </nav>
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-            <div class="title col-10 m-3 d-flex flex-column align-items-center">
-                <h2><%= fileData[1] %></h2>
-                <p><%= fileData[2] %></p>
+            <div class="title col-10 m-3 d-flex flex-column align-items-center" id="collection-title">
+
             </div>
         </div>
         <div class="row justify-content-center align-items-start" id="img-list">
-            <% files.forEach(file => { %>
-                <% 
-                    let link = file.thumbnailLink.slice(0, -5)
-                %>
-                <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                    <img src="<%= link %>" class="img-fluid rounded" alt="...">
-                </div>
-            <% }); %>
+
         </div>
     </div>
-
+    <div class="output"></div>
     <script src="../js/collection.js"></script>
+
 </body>
 
 </html>

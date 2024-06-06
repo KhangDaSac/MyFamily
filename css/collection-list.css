@@ -29,6 +29,10 @@
     object-position: center;
 }
 
+#carouselCaptions{
+    width: 100%;
+}
+
 
 @media (max-width: 1200px){
     .carousel-item img{
