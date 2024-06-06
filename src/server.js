@@ -6,6 +6,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT;
+const fs = require('fs');
+
 
 configViewEngine(app);
 
@@ -64,11 +66,12 @@ async function getFileByFolder(folderId, keyWork) {
   try {
     const response = await drive.files.list({
       q: `'${folderId}' in parents and name contains '${keyWork}'`,
-      fields: 'files(id, name)',
+      fields: 'files(id, name, thumbnailLink, mimeType)',
       pageSize: 1
     });
-
-    return response.data.files[0]
+    let file = response.data.files[0]
+    file.thumbnailLink = file.thumbnailLink.slice(0, -5)
+    return file
 
   } catch (error) {
     console.error('Error listing files:', error);
@@ -78,12 +81,21 @@ async function getFileByFolder(folderId, keyWork) {
 async function listFilesByFolder(folderId) {
   try {
     const response = await drive.files.list({
-      q: `'${folderId}' in parents and mimeType contains 'image/'`,
-      fields: 'files(id, name)',
+      q: `'${folderId}' in parents and (mimeType contains 'image/')`,
+      fields: 'files(id, name, thumbnailLink, mimeType)',
       orderBy: 'name',
       pageSize: 500
     });
-    return response.data.files;
+
+
+    const files = response.data.files.map(file => {
+      return {
+        ...file,
+        thumbnailLink: file.thumbnailLink.slice(0, -5)
+      };
+    });
+    
+    return files;
   } catch (error) {
     console.log(error.message);
   }
@@ -133,6 +145,7 @@ app.get('/collection/:folderName', async (req, res) => {
       return res.status(404).send(`Folder with name ${folderName} not found.`);
     }
     const files = await listFilesByFolder(folderId);
+    console.log(files)
     const fileData = folder.name.split(';');
     res.render('collection.ejs', { files,  fileData});
   } catch (error) {
@@ -163,8 +176,14 @@ app.get('/collection-list', async (req, res) => {
         }
       }
       folder.avata = avata;
+
+      let listImage = await listFilesByFolder(folderId);
+      console.log(listImage)
+      folder.listImage = listImage;
     });
     await Promise.all(promises);
+
+    fs.writeFileSync('data.json', JSON.stringify(folderList, null, 2), 'utf-8');
 
     res.render('collection-list.ejs', { folderList});
   } catch (error) {

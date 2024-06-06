@@ -34,7 +34,7 @@
                         <a class="nav-link mx-3 navbar-item active" aria-current="page" href="home">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-3 navbar-item" href="collection-list">Bộ sưu tập</a>
+                        <a class="nav-link mx-3 navbar-item" href="../collection-list">Bộ sưu tập</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link mx-3 navbar-item dropdown-toggle" href="#" role="button"
@@ -71,12 +71,16 @@
         </div>
         <div class="row justify-content-center align-items-start" id="img-list">
             <% files.forEach(file => { %>
+                <% 
+                    let link = file.thumbnailLink.slice(0, -5)
+                %>
                 <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                    <img src="../image/<%= file.id %>" class="img-fluid rounded" alt="...">
+                    <img src="<%= link %>" class="img-fluid rounded" alt="...">
                 </div>
             <% }); %>
         </div>
     </div>
+
     <script src="../js/collection.js"></script>
 </body>
 
