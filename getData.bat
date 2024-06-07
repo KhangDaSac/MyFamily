@@ -1,0 +1,2 @@
+@echo
+node getData.js

@@ -1,14 +1,12 @@
-.card{
-    overflow: hidden;
-    
-}
-
-.card img:hover{
+.img-item img:hover{
     transform: scale(1.2);
 }
 
-.card img{
+.img-item img{
     transition: transform 0.6s ease-in-out;
+    object-fit: contain; 
+    object-position: center;
+    max-height: 18vw;
 }
 
 .title h2{
@@ -24,5 +22,48 @@
     width: 85%;
 }
 
+#modal-body img{
+    height: 100%;
+    object-fit: contain; 
+    object-position: center;
+}
+
+.img-item{
+    overflow: hidden;
+    min-height: 18vw;
+}
+
+.img-item div{
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 992px){
+    .img-item img{
+        max-height: 30vw;
+    }
+    .img-item{
+        min-height: 30vw;
+    }
+}
+
+@media (max-width: 768px){
+    .img-item img{
+        max-height: 48vw;
+    }
+    .img-item{
+        min-height: 48vw;
+    }
+}
+
+@media (max-width: 576px){
+    .img-item img{
+        max-height: none;
+    }
+    .img-item{
+        min-height: none;
+    }
+}
 
 

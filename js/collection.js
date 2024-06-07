@@ -1,3 +1,4 @@
+console.log('có chạy')
 const url = '../data.json';
 let dataCollection = null;
 
@@ -33,15 +34,19 @@ fetch(url)
             <h2>${title[1]}</h2>
             <p>${title[2]}</p>
         `);
-        console.log(dataCollection)
+
         let img_list = $('#img-list');
         dataCollection.listImage.forEach(image => {
             img_list.append(`
-                <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0">
-                    <img src="${image.thumbnailLink}" class="img-fluid rounded" alt="...">
+                <div class="col-10 col-sm-5 col-md-3 col-lg-2 m-3 p-0 img-item d-flex justify-content-center align-items-center">
+                    <div>
+                        <img src="${image.thumbnailLink}" class="img-fluid rounded" alt="..." data-bs-target="#modalToggle" data-bs-toggle="modal">
+                    </div>
                 </div>
+
             `)
         });
     })
     .catch(error => console.error('There was a problem with the fetch operation:', error));
+    
 
