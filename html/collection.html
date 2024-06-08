@@ -63,7 +63,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
-                
+
             </div>
         </div>
     </nav>
@@ -82,10 +82,7 @@
     <div class="modal fade" id="modalToggle" aria-hidden="true" aria-labelledby="modalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0" id="modal-body">
+                <div class="modal-body p-0" id="modal-body" style="background-color: black;">
 
                 </div>
             </div>
@@ -97,9 +94,10 @@
         modalToggle.addEventListener('show.bs.modal', function (event) {
             var image = event.relatedTarget;
             var link = image.getAttribute('src');
+            var index = image.getAttribute('index');
             $('#modal-body').empty()
             $('#modal-body').append(`
-                <img src="${link}" alt="">
+                <img src="${link}" alt="" index="${index}" id="modal-img">
               `)
         })
     </script>

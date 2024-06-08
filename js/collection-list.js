@@ -18,7 +18,6 @@ fetch(url)
             if (title[3] == 'carousel') {
                 dataCollectionCarousel.push(data[i]);
             }
-            if (dataCollectionCarousel.length >= 3) break;
         }
 
 
@@ -27,12 +26,16 @@ fetch(url)
             let title = collection.name.split(';');
             collection_list.append(`
                 <div class="card col-10 col-sm-5 col-md-3 col-lg-2 m-3">
-                    <img src="${collection.avata.thumbnailLink}" class="img-fluid my-3" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title[1]}</h5>
-                        <p class="card-text">${title[2]}</p>
-                        <a href="collection.html?name=${title[0]}" class="btn btn-primary">Xem ảnh</a>
-                    </div>
+                    <a href="collection.html?name=${title[0]}">
+                        <div class="card-img">
+                            <img src="${collection.avata.thumbnailLink}" class="img-fluid my-3" alt="...">
+                        <div>
+                        <div class="card-body">
+                            <h5 class="card-title">${title[1]}</h5>
+                            <p class="card-text">${title[2]}</p>
+                            <a href="collection.html?name=${title[0]}" class="btn btn-primary">Xem ảnh</a>
+                        </div>
+                    </a>
                 </div>
             `)
         });

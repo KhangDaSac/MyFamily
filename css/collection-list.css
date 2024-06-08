@@ -23,9 +23,23 @@
     text-align: center;
     width: 85%;
 }
+
+.card-title, .card-text{
+   color: black;
+}
+
+
 .carousel-item img{
     max-height: 450px;
     object-fit: contain; 
+    object-position: center;
+}
+
+.card img{
+    height: 280px;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover; 
     object-position: center;
 }
 
@@ -54,6 +68,6 @@
 
 @media (max-width: 576px){
     .carousel-item img{
-        max-height: 300px;
+        max-height: 250px;
     }
 }

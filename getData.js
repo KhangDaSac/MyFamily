@@ -39,6 +39,7 @@ async function listAllFolders() {
         pageToken = null;
       }
     } while (pageToken);
+    console.log(folders)
     return folders;
   } catch (error) {
     console.error('Error listing folders:', error);
@@ -69,7 +70,7 @@ async function listFilesByFolder(folderId) {
       orderBy: 'name',
       pageSize: 500
     });
-
+    console.log(response.data.files)
 
     const files = response.data.files.map(file => {
       return {
@@ -99,11 +100,11 @@ async function getData(){
     folder.avata = avata;
 
     let listImage = await listFilesByFolder(folderId);
-    console.log(listImage)
     folder.listImage = listImage;
   });
   await Promise.all(promises);
   fs.writeFileSync('data.json', JSON.stringify(folderList, null, 2), 'utf-8');
+  console.log('Lấy dữ liệu thành công');
 }
 
 getData();
