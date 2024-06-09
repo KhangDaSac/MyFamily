@@ -1,4 +1,2 @@
 @echo
-git add .
-git commit -m 'commit'
-git push origin master
+node gitPush.js
