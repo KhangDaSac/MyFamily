@@ -49,6 +49,9 @@
 }
 
 @media (max-width: 768px){
+    .title h2{
+        font-size: 70px;
+    }
     .img-item img{
         max-height: 48vw;
     }
@@ -58,6 +61,9 @@
 }
 
 @media (max-width: 576px){
+    .title h2{
+        font-size: 60px;
+    }
     .img-item img{
         max-height: none;
     }
