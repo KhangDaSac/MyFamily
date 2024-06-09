@@ -3,7 +3,7 @@ const fs = require('fs');
 
 
 
-//main
+//main 002
 const CLIENT_ID = '452031363818-5kblklun3japt3557vqbe7g32qk16b2t.apps.googleusercontent.com';
 const CLIENT_SECRET = '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';
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
@@ -39,7 +39,6 @@ async function listAllFolders() {
         pageToken = null;
       }
     } while (pageToken);
-    console.log(folders)
     return folders;
   } catch (error) {
     console.error('Error listing folders:', error);
@@ -70,7 +69,6 @@ async function listFilesByFolder(folderId) {
       orderBy: 'name',
       pageSize: 500
     });
-    console.log(response.data.files)
 
     const files = response.data.files.map(file => {
       return {

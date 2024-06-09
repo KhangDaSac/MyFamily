@@ -47,6 +47,15 @@
     width: 100%;
 }
 
+#collection-list{
+    min-height: 500px;
+}
+
+
+.from-search{
+    width: 90%;
+}
+
 
 @media (max-width: 1200px){
     .carousel-item img{

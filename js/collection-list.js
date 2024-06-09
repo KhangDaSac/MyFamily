@@ -65,3 +65,19 @@ fetch(url)
         })
     })
     .catch(error => console.error('There was a problem with the fetch operation:', error));
+
+
+    
+    $(document).ready(function() {
+        $('#input-find-collections').on('keyup', function() {
+            let value_input = $('#input-find-collections').val().toLowerCase();
+            if(!value_input) {
+                $('#collection-list div').toggle(true);
+            }else{
+                $('#collection-list div').filter(function (){
+                    $(this).toggle($(this).find('h5').text().toLowerCase().indexOf(value_input) > -1);
+                })
+            }
+        });
+    });
+    

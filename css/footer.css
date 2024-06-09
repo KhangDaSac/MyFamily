@@ -1,0 +1,16 @@
+footer{
+    background-color: #f4a2ea;
+}
+
+footer *{
+    color: black;
+    font-size: 20px;
+}
+
+footer h6{
+    font-weight: 800;
+}
+
+footer .btn{
+    border-color: black;
+}

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../font/fonts.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/collection-list.css">
     <!-- icon -->
     <link rel="stylesheet" href="../icons/css/all.css">
@@ -48,18 +49,13 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item navbar-subitem" href="collection.html?name=dam-hoi-phuong-linh">Đám hỏi
+                            <li><a class="dropdown-item navbar-subitem"
+                                    href="collection.html?name=dam-hoi-phuong-linh">Đám hỏi
                                     Phượng Linh</a></li>
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 input-search" type="search" placeholder="Tìm kiếm"
-                        aria-label="Search">
-                    <button class="btn btn-outline-dark btn-search" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
+
             </div>
         </div>
     </nav>
@@ -72,10 +68,10 @@
             <div class="col-lg-6 col-10 m-3 d-flex justify-content-center">
                 <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators" id="carousel-indicators-list">
-    
+
                     </div>
                     <div class="carousel-inner" id="carousel-list">
-    
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions"
                         data-bs-slide="prev">
@@ -91,10 +87,92 @@
             </div>
 
         </div>
+        <div class="row justify-content-center align-items-center">
+            <form class="d-flex from-search" role="search">
+                <input class="form-control me-2 input-search" placeholder="Tìm kiếm"
+                    aria-label="Search" id="input-find-collections">
+            </form>
+        </div>
         <div class="row justify-content-center align-items-start" id="collection-list">
 
         </div>
     </div>
+
+    <footer class="text-center text-lg-start text-black">
+        <div class="container p-4 pb-0">
+            <section class="">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            Công ty
+                        </h6>
+                        <p>
+                            Công ty của cá nhân
+                        </p>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Sản phẩm</h6>
+                        <p>
+                            <a class="text-black">My Family 2024</a>
+                        </p>
+                        <p>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            Dường dẫn
+                        </h6>
+                        <p>
+                            <a class="text-black" href="home.html">Trang chủ</a>
+                        </p>
+                        <p>
+                            <a class="text-black" href="collection-list.html">Danh sách bộ sưu tập</a>
+                        </p>
+                    </div>
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Liên hệ</h6>
+                        <p><i class="fas fa-envelope mr-3"></i> daophuckhang128482@gmail.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> 0948238791</p>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-3">
+
+            <section class="p-3 pt-0">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-7 col-lg-8 text-center text-md-start">
+                        <div class="p-3">
+                            © My Family 2024
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-black" role="button"
+                            href="https://www.facebook.com/profile.php?id=100023933105394"><i
+                                class="fab fa-facebook-f"></i></a>
+
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-black" role="button"><i
+                                class="fab fa-twitter"></i></a>
+
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-black" role="button"><i
+                                class="fab fa-google"></i></a>
+
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-black" role="button"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
 
     <script src="../js/collection-list.js"></script>
 </body>
