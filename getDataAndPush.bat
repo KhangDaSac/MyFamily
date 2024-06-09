@@ -1,3 +1,3 @@
 @echo
 call getData.bat
-call pushGIT.bat
+call gitPush.bat
