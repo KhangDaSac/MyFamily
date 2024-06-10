@@ -80,7 +80,7 @@ fetch(url)
                 console.log('deltaX: ', deltaX);
                 console.log('deltaY: ', deltaY);
 
-                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 100) {
                     if (deltaX < 0) {
                         console.log('Swipe left');
                         let index = parseInt($('#modal-img').attr('index'));
@@ -94,7 +94,7 @@ fetch(url)
                         $('#modal-img').attr('index', index);
                         $('#modal-img').attr('src', dataCollection.listImage[index].thumbnailLink);
                     }
-                } else if (Math.abs(deltaY) > 50) {
+                } else if (Math.abs(deltaY) > 100) {
                     console.log('Swipe vertical, closing modal');
                     $('#modalToggle').modal('hide');
                 }

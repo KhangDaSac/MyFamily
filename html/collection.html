@@ -165,10 +165,10 @@
             var image = event.relatedTarget;
             var link = image.getAttribute('src');
             var index = image.getAttribute('index');
-            $('#modal-body').empty()
+            $('#modal-body').empty();
             $('#modal-body').append(`
                 <img src="${link}" alt="" index="${index}" id="modal-img">
-              `)
+            `);
         })
     </script>
 </body>
